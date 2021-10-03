@@ -1,0 +1,127 @@
+\\ 
+\section{Formale Sprachen, Grammatiken, Automaten}
+\subsection{Alphabete \& Wörter}
+Ein \textbf{Alphabet $\sum$} ist eine \textit{endliche, nichtleere Menge von Symbolen}. Bsp. $\sum$ = \{a,b,c\}. oder $\sum_{Bool}$ = \{0,1\} | Boolsche Alphabet. oder $\sum_{lat}$ = \{a,b,..z\} | Alphabeth der lat. Kleinbuchstaben... aber $\mathbb{N}$ ist kein Alphabeth, da nicht endlich.\\
+Ein \textbf{Wort w} (Zeichenreihe, String) ist eine \textit{endliche Folge von Symbolen eines best. Alphabeths}. Bsp. w = 1001011 | ist ein Wort über dem Alphabeth {0,1}. oder w = abc | ist ein Wort über dem Alphabeth $\sum{lat}$. Ein \textbf{Leeres Wort $\epsilon$} ist ein Wort, dass keine Symbole enthält. Das $\epsilon$ ist ein Wort über jedem Alphabeth.\\
+Die \textbf{Länge eines Wortes |w|} ist wie Mächtigkeit.Leeres Wort = 0, Leerzeichen auch zählen.\\
+\textbf{Konkatenation von Wörtern} x und y sind zwei Wörter, dann meint y*x=yx die Konkatenation der beiden.\\
+\\
+\textbf{Teilwort, Infix}, dass irgendwo in der Mitte eines Wortes vorkommt (nicht erstes, letztes Symbol). Bsp. w=xvy, dann ist v ein Teilwort von w. Ein \textbf{echtes Teilwort} wenn das Teilwort kürzer ist als das w. \textbf{Präfix} ist das Symbol, dass vor einem anderen steht.Wort ist ein Präfix von. \textbf{Suffix} steht hinten.\\
+\\
+Die \textbf{Menge aller Wörter der Länge k}, über einem Alphabeth $\sum$ wird $\sum^k$ genannt. Bsp. für $\sum$ = \{a,b,c\} ist $\sum^2$=\{aa,ab,ac,ba,bb,bc,ca,cb,cc\}. \\
+\\
+Die \textbf{Menge aller Wörter über einem Alphabeth} nennen wir \textbf{Kleenesche Hülle} von $\sum$ und wird mit $\sum^*$ bezeichnet. Kleensche Hülle ist undendlich. Bsp. $\sum$ = \{0,1\}, dann $\sum^*$= $\{\epsilon, 0,1,00,01,11,000,111...\}\\
+$\sum^{+} = \sum^{*} \setminus \{\epsilon\}$. Kleensche Hülle - $\epsilon$.\\
+\textbf{Binärwörter} sind Wörter aus \{0,1\}*. \{0,1\}* ist die \textbf{Menge der Binärwörter}\\
+
+\subsection*{Wortpotenzen}
+Wörter kürzer darstellen. Bsp. $aaaaa= a^5$| $aabbbeeee = a^2b^3c^4$ | $x^0 = $\epsilon$| $x^{1} = x$| $x^i = x * x^{i-1}$|\\
+
+\subsection{Sprachen}
+Eine \textbf{Teilmenge L (language) über allen möglichen Wörtern eines Alphabeths $L\subseteq \sum^{*}$} wird als \textbf{Sprache  über $\sum$} bezeichnet.\\ 
+Bsp. Deutsch ist eine Sprache über dem Alphabeth der lat. Sprache, leerzeichen, Kommata.\\ 
+Bsp. wenn $\sum_{1} \subseteq \sum_{2}$ gilt und L eine Sprache über $\sum_{1}$ ist, dann ist L auch eine Sprache über $\sum_{2}$.\\ 
+Bsp. $\sum^{*}$ ist eine Sprache über jedem Alphabeth $\sum$.\\ 
+Bsp. $\{\}= \emptyset$ ist die \textit{leere Sprache} über jedes Alph.\\ 
+Bsp. $\{\epsilon\}$ist die Sprache aus dem leeren Wort. (Achtung $\emptyset$ nicht gleich $\{\epsilon\}$). \\ Bsp. L:=\{$\epsilon$,10,1100, 111000,..\} =
+L:=\{w | w enthält n Einsen gefolgt von n Nullen für $n \in \mathbb{N}$ \}.\\
+
+\subsection*{Entscheidungsproblem, Wortproblem}
+Modellierung von alltäglichen Berechnungsproblemen im Formalismus der formalen Sprache.
+\textbf{Input}: Sprache L über ein Alphabeth $\sum$ und ein Wort x $\in \sum^{*}$.\\
+\textbf{Output}: Ist dieses Wort x Teil der Sprache? ja, falls $x \in L$.
+\\ Primzahltest, Bsp. Alphabeth $\sum_{Bool} = \{0,1\}$. Sprache $L_{p}$ = \{w | w ist eine Primärzahl in Binärdarstellung\}. Wörter x aus $\sum^{*}$. Test: ist x eine Primzahl/ist $x \in$ $L_{p}$?
+\\
+\subsection{Strukturelles Modell, Darstellung endl. Automaten}
+\textbf{Elementare Bausteine}: Zustände, Zustandsübergänge   \\
+\textbf{Eingabe}: Eingabealphabeth $\epsilon$, Eingabewort w, Automat liest w über $\epsilon$ von links nach rechts ein.\\
+\textbf{Speicher}: kein Speicher, keine Variabeln benutzen, einzige Info: aktueller Zustand.\\
+\textbf{Berechnung}: Folge von Zuständen (für Eingabewort)\\
+\textbf{Ausgabe}: akzeptierte Zustände\\
+
+\subsection*{Endlicher Automat}
+\textbf{Definition}: Ein (deterministischer) endlicher Automat EA ist ein Quintupel: $M = (Q,\epsilon, \delta, q_0, F)$. \\ 
+M: Machine,\\
+Q: endliche Menge von Zuständen, $Q=\{q_0,q_1,..q_n\} (n \in \mathbb{N_0})$\\ 
+$\sum$: Eingabealphabeth, $\sum=\{a_1,a_2,..,a_m\} (m \in \mathbb{N_{0}})$\\ 
+$\delta$: Uebergangsfunktion für Zustände, $\delta = Q x \sum \rightarrow Q}$.\\ 
+z.B. $\delta(q_0, a1) = q_1$\\ 
+$q_0$: Startzustand, $q_0 \in Q$.\\ 
+F: Menge der akzeptierten Zuständen, $F \subseteq Q$.
+
+\subsection*{Berechnungsmodell}
+Schema für den Aufbau von Berechnungsmodellen:\\ 
+\textbf{1. Definiere Struktur},welche die exakte Beschreibung jedes Objekts der Modellklasse (z.EA) ermöglicht.  \\ 
+\textbf{2. Beschreibung der Bedeutung} (Semantik) der Struktur:\\ 
+2.1 \textbf{Konfiguration}: Vollständige Beschreibung einer Situation, in der sich das Modell befindet.\\  
+2.2 \textbf{Berechnungsschritt}: Übergang aus einer Konfig. in eine andere durch die Ausführung  eines Befehls des Modells. (eine Art Befehl)\\ 
+\textbf{3. Berechnung}: Folge solcher elemnt. Berechnungsschritte.\\ 
+4. jeder Eingabe \textbf{Arbeitsresultat} als Ausgabe \textbf{zuordnen}.\\ 
+
+\subsection*{Konfiguration}
+Vom strukturellen zum exakten Berechnungsmodell\\ 
+Sei $M = (Q,\epsilon, \delta, q_0, F)$ ein EA. Eine Konfiguration von M ist nun ein Element aus $Q x \sum^{*}$ \\ 
+Bsp. wenn M sich in einer Konfig. $(q,w) = \in Q x \sum^{*}$ befindet, dann M in Zustand q und muss noch Suffix des Wortes w lesen.\\ 
+Eine Konfiguration $(q_{0},w) \in \{q_0\} x \sum^{*}$ nennen wir \textbf{Startkonfiguration von M auf w}.\\ Von Start zu End berechnen wir, bis alle Symbole von w gelesen. Also wenn nichts mehr zu verarbeiten ist.\\ 
+Jede Konfiguration aus $Q x \{\epsilon\}$ (erinnern: leeres Wort)nennt man \textbf{Endkonfiguration}.\\
+
+\subsection*{Elementarer Berechnungsschritt $\vdash$}
+Ein Berechnungschritt von M ist die Anwendung der Übergangsfunktion auf die aktuelle Konfiguration und ist definiert durch: \\ 
+$(q,w) \vdash (p,x)$ genau dann, wenn $w = ax, a \in \sum$ und $\epsilon(q,a)=p$ gilt. (Start mit a 8aus w), dann verarbeiten und dann bleibt noch x.). Also bleibt ein neues Wort (hier x), das weiterverarbeitet wird. Berechnung ist dann eine Folge von einzelnen Berechnungsschritten.\\
+$\vdash: Q x \sum^* \rightarrow Q x \sum^*\\
+\subsection*{Berechnung}
+Eine endliche Folge von Berechnungsschritten nennt man Berechnung. Abgekürzt schreiben als:\\ 
+$(q_0, w_1w_2...w_n) \vdash* (q_1,w_j...w_n) ...$ ( und noch mehr..$\vdash* (q_n,w_x...w_y)$.\\
+Die \textbf{Berechnung von M auf einer Eingabe} $w \in \sum^*$ ist eine Berechnung, die in Startkonfig. startet und ien Endkonf. für irgend ein $q_1 \in Q$ endet.\\ 
+Die Berechnung ist \textbf{akzeptierend}, wenn $q_1 \in F$ gilt, und \textbf{verwerfend}, falls $q_1 nicht \in F$.
+
+\subsection{Sprache eines endl. Automaten}
+Die Sprache L(M) eines EA M ist die Menge aller von M akzeptierten Wörter:\\
+$L(M) = \{w \in \sum^{*} |$ Berechnung von M endet in einem akzeptierten Zustand $\}$. \\ L(M) nennen wir dann auch die \textbf{von M akzeptierte Sprache}.\\ 
+\textbf{Klasse der regulären Sprachen} beinhaltet alle Sprachen, die von einem EA akzeptiert werden. Jede dieser Sprache wir \textbf{regulär} oder \textbf{Typ-3} genannt.\\
+\textbf{Anzahl Symbole in einem Wort} $|w|_a$  ist die Anzahl der Symbole a im Wort w.\\
+Bsp. Sind alle Sprachen regulär? Nein! Bsp. Einfache nichtreguläre Sprache: Wie sieht Automat für $\{0^n1^n | n \in \mathbb{N_0}\}$ aus? Dieser Automat ist unendlich. Damit ist die Sprache auch nicht-regulär.\\
+
+\subsection{Kontextfreie Grammatik, KFG, Typ-2 Grammatik}
+'Eine Art rekursive Formel'-Ersetzen... Eine \textbf{Kontextfreie Grammatik G} ist ein 4-Tupel\\
+$(N,\sum, P, S)$ mit:\\
+-N ist das Alphabeth der \textbf{Nichtterminalen} (Variablen). Bsp. \{S\}, siehe oben \\ 
+- $\sum$ ist das Alphabeth der \textbf{Terminale}. Bsp. \{0,1\}\\ 
+-P ist die endl. Menge von \textbf{Produktionen} ((Ersetzungs-)Regeln). Jede Produktion hat die Form:\\
+$ X \rightarrow \beta $ mit \textbf{Kopf} $X \in N$ und \textbf{Rumpf}  $ \beta \in ( N \cup \sum)^*$ \\
+Bsp. P = $\{S \rightarrow0S1,S \rightarrow \epsilon\}$ oder in Kurzschreibweise $S \rightarrow 0S1 | \epsilon $ (links immer das Nichtterminal)\\
+- S ist das \textbf{Startsymbol}, wobei $S \in N$. (in Menge der Nichtterminalen)\\
+
+Das Wort $ \beta \in ( N \cup \sum)^*$ nennen wir eine \textbf{Satzform}. (Form weil noch aus Nichtterminalen besteht, Satz weil aus endl. Menge von Wörtern besteht)\\
+
+Ein KFG $G_2$ für eine Sprache der \textbf{balancierten Klammerausdrücke} wie Bsp. (())():\\
+$G_2 = (\{S\},\{(,)\},P,S)$ . Die Menge der Produktion P ist $S \rightarrow (S) | SS | \epsilon $. \\   
+\textbf{Ableiten des Wortes} (())() in $G_2$: \\
+$S \rightarrow SS \rightarrow (S)S \rightarrow (S)(S) \rightarrow((S))(S)\rightarrow(())(S) \rightarrow (())()$.
+
+\subsection*{Ableitungsschritt}
+Seien $\alpha , \beta , \gamma$ Satzformen und $A \rightarrow \gamma$ eine Produktion: Durch \textbf{Ableitungsschritt} wird eine Satzform $\alpha A \beta$ durch die Anwendung der Produktion in die Satzform $\alpha\gamma\beta$ \textbf{abgeleitet}.\\
+Darstellung: $\alpha A \beta \implies \alpha\gamma\beta$ \\
+
+Die \textbf{Ableitung eines Wortes} w aus der Kleensche Hülle $\sum^*$ ist die Folge von Ableitungsschritten, so dass aus Satzform $\alpha$ das Wort w abgeleitet wird.\\
+$\alpha \implies w$. \textbf{Linksseitige Ableitung} = ersetzt Nichtterinal weitesten links in Satzform. Entsprechend \textbf{Rechtsseitige Ableitung} = ersetzt Nichtterinal weitesten rechts.\\
+Jedes Wort einer Kontextfreien Sprache hat mind. 1 links- und eine rechtsseitige Ableitung.\\
+Wenns ein Wort in einer Grammatik generell ableitbar ist (ohne die einzl. Schritte zu schreiben), schreiben wir: $S \implies ^* w$. erzeugen/generieren.\\ 
+
+Mehrdeutigkeit von Grammatiken kann problematisch sein, wenn man sie nicht beachtet. Ein typ. Bsp. ist das \textbf{Dangling Else Problem}.\\
+
+\subsection*{Sprache einer Kontextfreien Grammatik}
+Die von G \textbf{erzeugte Sprache L(G)} beinhaltet alle Wörter, die in G aus dem Startsymbol S ableitbar sind: $L(G) = \{w \in \sum^* | S \implies ^* w \}$ \\
+\textbf{Mehrdeutigkeit kontextfreieer Grammatik} = wenn ein Wort mehrere Abelitungsbäume besitzt...das kann problematisch sein. daher können z.B mit Klammern Vorgaben gemacht werden.oder einer Produktion eine Vorrang geben.
+
+\subsection*{Kontextfreie Sprache (Typ-2 Sprache)}
+Wenn für Sprache L eine Grammatik G existiert L= L(G), dann nennen wir L eine \textbf{kontextfreie Sprache oder Typ-2-Sprache}.
+
+
+
+\pagebreak
+
+
+
+
+

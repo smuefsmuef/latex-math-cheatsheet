@@ -1,0 +1,242 @@
+\\ 
+\section{Beweise}
+\subsection*{Deduktiv}
+Axiome->mittels Regeln/Def.-->Aussagen ableiten->Log.Beweisen.
+\subsection*{Induktiv}
+Wissen aus Beob./Exp.. vom einz. aufs Ganze.
+\subsection*{Direkter Beweis}
+Beim direkten Beweis wird Schritt für Schritt mittels \emph{Wenn, Dann} bewiesen. Bsp. Aus $A folt B$, aus $B folgt Z$. und weil Transitivität der Implikation. Aus $A folgt Z$.
+Beweisen mittels Wahrheitstabellen.\\
+Gegeben: Wahre Aussagen und Werkzeige. Zu zeigen: dass Z gilt. Methode: Folge von Implikationen finden, von A bis Z. Aus Gültigkeit von A, kann Gült. von Z geschlossen werden.
+\subsection*{Kontraposition}
+Da $p\Rightarrow q\equiv \neg q\Rightarrow \neg p$ kann man die Aussage auch mittels Kontraposition beweisen.
+z.B bei ungeraden Zahlen.
+\subsection*{Widerspruch, Indirekter Beweis}
+Beim Widerspruchsbeweis wird Gegenteil angenommen und in einen Widerspruch geführt.
+Also muss die ursprüngliche Aussage wahr sein.\\
+
+\section{Vollständige Induktion}
+Ist ein deduktives Argument (weil vollständig, d.h. für jeden Einzelfall auf einen allg. Fall schliessen. 
+(deduktiv: die allg. Richtigkeit ableiten).
+
+\subsection{Induktionsbeweis}
+Bsp. für n \in \mathbb{N}_0$ gilt: \sum_{i=0}^n 2^{i} = 2^{n+1}-1
+
+\textbf{1.Verankerung} 
+Zeigen, dass \textit{A(n$_{0}$)} gilt. Der erste Dominostein muss fallen!\\
+$n_{0}$ = 0, dann gilt für A(0):\\
+\sum_{i=0}^0 2^{i} = 2^{0+1}-1\\
+= 2^{0} = 2-1\\ 
+= 1 = 1. $ korrekt, Aussage ist für $ n_{0}=0$ korrekt.\\
+\textbf{2.Schritt}
+Wir nehmnen an, dass \textit{A(n)} gilt unter der Annahme ($n\in \mathbb{N}$) mit n\geq \ n$_{0}$. Somit sollte also auch A(n+1) gelten. Formal:\\
+\forall	$$n$\in \mathbb{N}$ $mit n$\geq \ n$_{0}$ : $A(n)$ $\rightarrow A(n+1)$.\\
+Achtung!! manchmal auch umgekehrt:!!\\
+\forall	$$n$\in \mathbb{N}$ $mit n$\geq \ n$_{0}$ : $A(n-1)$ $\rightarrow A(n).\\
+$\textbf{2.1 Annahme}: $A(n)$\\
+'(n)' einsetzen, Formel hinschreiben (oft urspüngliche).\\
+\sum_{i=0}^n 2^{i} = 2^{n+1}-1\\
+$\textbf{2.2 Behauptung} $A(n+1)$\\
+'n+1' bei Annahme einsetzen.\\
+\sum_{i=0}^{n+1} 2^{i} = 2^{(n+1)+1}-1\\
+($n \Longrightarrow n+1$): Zu zeigen ist also $n+1$ einsetzen $\Rightarrow$ Aussage gilt auch,
+\emph{mit Benutzung von Induktionsbehauptung}.\\
+\textbf{3. Beweisen} \\
+In deisem Bsp.\\
+Beahuptung links = Annahme links + 'eins mehr')
+n+1 = (n) + (1 mehr)\\
+\sum_{i=0}^n 2^{i} = [\sum_{i=0}^n 2^{i}] + 2^{n+1} $|^{n+1}$ für 2^i$\\
+= $[2^{n+1}-1] + 2^{n+1} $| [] = Annahme rechts.\\
+= $2^1(2^{n+1}-1) $| vereinfachen\\
+= $2^{n+2}-1. $\square$ | entspricht  Behauptung rechts.\\
+
+\subsection{Ungleichungen}
+Bsp. Ungleichung von Bernoulli\\
+$x>-1, n \in \mathbb{N}_0: (1+x)^n \ge 1+n*x.$\\
+\textbf{1. Verankerung}: n_0 =0$, dann A(0) = \\
+(1+x)^0 \ge 1+0*x. \\
+1 \ge 1. $korrekt.\\
+\textbf{2.1 Annahme}: A(n)\\
+ (1+x)^n \ge 1+n*x, \forall	$$n$ > -1.\\
+\textbf{2.2 Behauptung}:A(n) -> A(n+1)\\
+ (1+x)^{n+1} \ge 1+(n+1)*x, \forall	$$n$ > \-1.\\
+\textbf{3. Beweis}:\\
+Behauptung li = Annahme li +'eins'\\
+(1+x)^{n+1} = [(1+x)^n] * (1+x)^1\\
+\ge (1+n*x)*(1+x)  $|[] Annahme einsetzen.\\
+=1+x+nx+nx^2\\
+=1+(n+1)x+nx^2 $|wobei nx^2 \ge 0!\\
+\ge 1 +(n+1)x. $\square$ | entspricht  Behauptung rechts.\\
+\subsection{Allg. Aussagen}
+z.B 8^n-1 $ist durch 7 teilbar, für n \in \mathbb{N}$\\
+\textbf{1. Verankerung}: n_0 =1$,
+dann A(1) = 8^1$-1=7. korrekt.\\
+\textbf{2.1 Annahme}: A(n)\\
+8^n-1 $ist durch 7 teilbar.\\
+\textbf{2.2 Behauptung}:A(n) -> A(n+1)\\
+$8^{n+1}-1$ ist durch 7 teilbar.
+\textbf{3. Beweis}:\\
+Behauptunng li = Annahme li +'eins'\\
+$8^{n+1}-1 = 8^1*[8^n-1]$\\
+kleiner Trick, rechte Seite -7+7.\\
+$= 8^1*8^n-1-7+7\\
+= 8^1*8^n-8+7\\
+=8* (8^n-1) + 7$\\
+$(8^n-1)$ ist durch 7 teilbar, 7 ist durch 7 teilbar, $8*(8^n-1)$ ist durch 7 teilbar. und so auch der ganze Ausdruck.\\
+\\
+
+\section{Rekursion}
+Idee Induktion: Startelement und dann Nachfolgeelemente. Idee Rekursion: \textbf{Umkehrung der Idee}, Starten irgendwo und gehe zurück bis zum Anfang (wo Funktionswert einfach berechnet werden kann).
+Vorgehen ist rekursiv, wenn \textbf{Basisfall} (Basiselement der Menge) beschrieben ist durch \textbf{Anzahl Regeln} (wie man von belieb. Element zu Basisfall kommt).\\
+\textbf{Fraktale, Sirpinski-Dreieck, Fibonacci, Fakultät...}
+\textbf{Oft: Aus rek. Darstellung die expliz. Darstellung bestimmen!}\\
+
+\subsection{Grundbegriffe Zahlenfolgen}
+Einfachtse rekursive Struktur.\\
+\textbf{A) Funktionale Definition, Explizite Def.}
+Eine (reelle) Zahlenfolge ist eine Funktion: \\
+$f:\mathbb{N}-->R$, $n -->f(n)$\\
+'für jedes n gibt es einen funkt. Wert.'\\
+andere Schreibweisen: $f(n)_{n \in \mathbb{N}}$\\
+f(n) allein = \textbf{explizite Definition}.\\
+\textbf{B) Rekursive Darstellung, k-ter Ordnung}
+1.Ordnung = 1 Startwert, 2.Ordnung=2 Startwerte etc.\\
+$f:\mathbb{N}-->R$, werden die:\\
+-\textbf{Folgeglieder} (und {(Anfangswerte)}) angegeben: f(1), f(2), ..f(k)..\\
+-für $n \ge k+1$ eine \textbf{Vorschrift}(Berechnungsvorschriften), wie das \textbf{n-te Folgeglied f(n)} aus den Folgegliedern f(n-1), f(n-2),..f(n-k) berechnet wird.\\
+\textbf{C) Aufzählende Darstellung}\\
+Auflistung Folgeglieder: f(1),f(2),..f(n).\\
+
+\textbf{Beispiel Fakultät:}\\
+\textbf{C)} 1,2,6,24,120..\\
+\textbf{A)} $f:\mathbb{N}-->R$, $n -->f(n): n!$\\
+=n*(n-1)*(n-2),...*3*2*1.\\
+\textbf{B)} 1. Ordnung $f(1):=1, \\ 
+f(n):n*f(n-1)$ für $n \in \mathbb{N}$ mit $n\ge2$\\
+
+\textbf{Beispiel Fibonacci}\\
+\textbf{C)} 1,1,2,3,5,8,13,21,34,55.\\
+\textbf{A)} $f(n)=1/\sqrt5 ((1+\sqrt5)/2)$....komplex\\
+\textbf{B)} 2. Ordnung $f(1):=1$,$f(2):=1$ \\ 
+$f(n):= f(n-1)+f(n-2)$ für $n \in \mathbb{N}$ mit $n\ge3$.\\
+
+\textbf{Beispiel explizit, rekursiv}\\
+\textbf{A)} 1,4,7,10,13,16,..\\
+\textbf{C)} $f(1)=1, f(n):=f(n-1)+3, \forall >1$.\\
+\textbf{B)} $f(n)=3*n-2, \forall n \in \mathbb{N}$.\\
+
+\textbf{A)} 2,4,8,16,32,64,..\\
+\textbf{C)} $f(1)=2, f(n):=f(n-1)*2, \forall >1$.\\
+\textbf{B)} $f(n)=2`n, \forall n \in \mathbb{N}$.\\
+
+\textbf{A)} 3,33,333,3333,..\\
+\textbf{C)} $f(1)=3, f(n):=f(n-1)*10+3, \forall >1$.\\
+\textbf{B)} $f(n)=\sum_{i=1}^n 3*10^{i-1}, \forall n \in \mathbb{N}$\\
+
+\subsection{Rekursionsbaum}
+Berechnung des n-ten Folgeglieds einer rek. Zahlenfolge.\\
+gerichteter baum it 'Wurzel' f(n).\\
+1. Anfangswerte als Blätter.\\
+2. Aufsteigend für jeden Vorgänger gemäss dem Funktionswert ausrechnen und hinschreiben. Bis zu Wurzel f(n).\\
+
+\Tree [.Wurzel [.B [.C Blatt ] [.D Blatt ] ].B [.E {Blatt} ] ]\\
+Zuerst f(x) überall hinschreiben, danach ausrechnen, und danaben hinschreiben.
+Bsp. 'Fibonacci f(5)'\\
+Wurzel=f(5)=5.\\
+B=f(4)=3\\
+E=f(3)=2 && f(2)=1.\\
+C=f(3)=2 && f(2)=1.\\
+..
+Blätter: f(2)=1 && f(1)=1\\
+\\
+\\
+\\
+
+\subsection{Induktives Schliessen, rek --> expl.}
+Mittels Zahlenbeispielen. Viele Varianten aufschreiben.\\
+Bsp. f(1), f(n) =4*f(n-1) + 4^{n-1}, für $n \in \mathbb{N}$ mit $n\ge2$\\
+\textbf{0. Vermutung}:\\
+$f(1) = 1. (=4^0*1)$\\
+$f(2)=4*f(1) + 4^1 = 4*1+4 =8$\\
+$f(3)=4*f(2) + 4^2 = 4*8+16 =48$\\
+$f(4)=4*f(3) + 4^3 = 4*48+64 =256.$\\
+Vermutung: $4^{n-1}*n = n*4^{n-1}$.\\
+Die Vermutung muss nun bewiesen werden. z.B. mittels vollständiger Induktion.\\
+\textbf{1. Verankerung}: $n=1, f(1)=1.$ \\
+$4^{1-1}*1 = 1*1=1$. korrekt.\\
+\textbf{2.1 Annahme}: $f(n-1)$\\
+$f(n-1)=(n-1)*4^{n-2}$
+!!Auf diese Art, weil wir annehmen, dass Formel unserer Vermutung für n gilt.\\
+\textbf{2.2 Behauptung}:$f(n) = n*4^{n-1}$\\
+\textbf{3. Beweis}: n$_{0}$ : $A(n-1)$ $\rightarrow A(n)\\
+$f(n) = 4* [f(n-1)] +4^{n-1}$ | rek. Def.\\
+$ = 4* [(n-1)*4^{n-2}] +4^{n-1}$ | Annahme[] einsetzen\\
+$ = 4^{n-1}(n-1)+4^{n-1}$| Pot.r, umform.\\
+$ = 4^{n-1}(n-1+1)$| ausklamm.\\
+$ = 4^{n-1}*n.$\square$ \\
+
+\subsection{Beweisen durch Einsetzen}
+Vereinfachter/schneller Beweis.\\
+1. überprüfen, ob expl. Darstellung für n=1 gilt. (Anfangsbedingung)\\
+2. überprüfen, expl. Darstellung einsetzen in rek. Darstellung = korrekte Gleichung?\\
+Bsp. explizit: $f(n) = n*4^{n-1}$ für \\
+rekursiv: $f(1), f(n)= 4*f(n-1)+4^{n-1}$ für $n\in \mathbb{N}$ mit $n\ge2$\\
+\textbf{1. Verankerung}: $f(1) = 1*4^{1-1} = 1$. korrekt.\\
+\textbf{2.2 Behauptung durch einsetzen}: $f(n)=n*4^{n-1}$ explizit\\
+expl. li in rek.: $n*4^{n-1}$\\
+expl. re in rek.: $4*(n-1)*4^{n-2}+4^{n-1}$\\
+$ = (n-1)*4^{n-1}+4^{n-1}$\\
+$ = n*4~{n-1}+4^{n-1}$\\
+$ = n * 4^{n-1}. $\square$\\
+
+\subsection{Unterscheidungen}
+$f(n) = s(n) + \sum_{i=1}^k c_{n-1}(n) * f(n-i) $
+ist eine lin. Rek.gleich. k-ter Ordnung.\\
+\textbf{Typ}: linear | nicht Bruc, nicht expo.\\
+\textbf{Ordnung}: k-ter | wie viele f(n-1), f(n-2), f(..)\\
+\textbf{Störterm}: s(n) | konstanter Störterm.\\
+--> wenn Störterm = 0, dann ist \textbf{homogen}.\\
+\textbf{Koeffizientenfunkton}: $c_{n-1}(n)$ |  weil von n abhängig.\\
+Ich schreibe: homogene lineare Rek.gleichung 1. Ordnung mit Koeffizientenfunkton c = x.\\
+
+\subsection{Iterationsmethode}
+für homogene lin. Rekursionsgleichungen. Ähnlich ind. Schliessen.\\
+\textbf{Gegeben}: $f(n) = (n) * f(n-1)$ mit $f(1) = a (a \in  \mathbb{R})$\\
+\textbf{Vorgehen}: f(n-1), f(n-2)..f(1) nach und nach einsetzen und versuchen, das Ergebnis zu vereinfachen. Danach beweisen durch vollst. Induktion oder Einsetzungsmethode\\
+\textbf{falls c konstant, homogen und 1. Ordnung}: falls c(n)=c eine konst. Funktion ist, dann Lösung:
+$f(n) = a * c^{n-1}$ | a = Anfangswert.\\
+
+\section{Rekursionsgleichungen lösen}
+bisher, homogen, lin. Rek. 1. Ordnung.\\
+\subsection{Inhomogen, lin. Rek., 1. Ordnung}
+Oft auch mit Iterationsmethode. Oder mittels \textbf{Lösungsformel}:
+Bsp. $f(n) = s + \sum_{i=1}^k c_{n-i} * f(n-i) $\\
+$s \in \mathbb{R} , c_{n-i} \in \mathbb{R}, i \in {1,2,..k} $\\ heisst (inhomogene) lineare Rekgleichung k-ter Ordnung mit konst. Koeffizenten.\\
+\textbf{Lösungsformel II}: $f(n) = c * f(n-1) + s$ \\
+\textbf{Lösung (inhom., lin. Rek.gleich. 1. Ordnung, c konstant)}: Bsp. $f(n) = c * f(n-1) + s$, mit f(1)= a ist: \\
+c nicht gleich 1: $f(n) = a * c^{n-1} + \frac{1-c^{n-1}}{1-c} * s $\\
+c gleich 1: $a + (n-1)* s$\\
+
+\textbf{Lösung (inhom., lin. Rek.gleich. 1. Ordnung, c konstant, Störterm konstant},Bsp. $f(n) = s(n) + c * f(n-1) + s$, mit f(1)= a ist: \\
+f(n) = $all. Lösung hom. Gleichung  + p(n)\\ 
+= d * c^{n-1} + p(n)$\\
+p(n) = irgendeine spez. Lösung (\textbf{Partikuläre Lösung}) der inhomogenen Rekursion, welche zudem \textbf{nicht} Lösung der zugehörigen hom. Gleichung ist.\\
+\textbf{Partikuläre Lösung}: \\
+Wie finden? Die noch freien Parameter/Polynomkoeff.werden bestimmt indem der Ansatz p(n) in die Rekursionsgleichung eingesetzt wird.\\
+-$Störterm s(n)$: Polynom in n vom Grad m--> $Ansatz$: Allg. Polynom in n vom Grad m.\\
+-$s(n): u^n, u \in \mathbb{R}$--> Ansatz: $t * u^n$\\
+-$s(n)$: (Polynom in n vom Grad m) $* u^n, u \in \mathbb{R}$ --> Ansatz: (Allg. Polynom in n vom Grad m) * u^n$\\
+ \textbf{Schema zum Lösen von  $f(n) = s(n) + c * f(n-1)$}:  1.c in $f(n) = d * c^{n-1} + p(n)$ eisetzen.\\
+ 2.Spezielle Lösung p(n) bestimmen. und mögliche Param.x,y,.. durch einsetzen von p(n) bestimmen. (achtung Warnung! Wenn bereits Lösung hom. Rek.gleichung)\\
+ 3. d durch Einsetzen der Anfangsbeding. bestimmen.\\
+ 
+\subsection{Homogen, lin. Rek., 2. Ordnung}
+-Resultat ist eine quadr. Gleichung, die wir mit der Mittenachtsformel lösen können.
+\textbf{Charakteristische Gleichung} Die Gleichung : $ax^2+bx+c = 0$ heisst. char. Gleich. für die Rekursionsgleichung: $f(n) = b * f(n-1) + c* f(n-2)\\
+Lösung dann über Mitternachtsformel.\\
+-für b^2 + 4c > 0: f(n) = d_1 * ....
+\subsection{Inhomogen, lin. Rek., 2. Ordnung}...
+\pagebreak
+
+
+

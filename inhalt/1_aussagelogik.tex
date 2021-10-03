@@ -1,0 +1,294 @@
+\scriptsize	
+\section{Aussagelogik}
+\subsection{Aussagen und aussagelogische Formeln}
+
+Eine \textbf{\textit{logische Aussage}} ist eine Aussage, die einen eindeutigen Wahrheitswert hat und somit grunsätzlich entscheidbar ist.
+Einzelne entscheidbare Aussagen werden auch \textbf{\textit{elementare oder atomare Aussagen}} genannt.\\
+
+	\textit{V$_{ar}$} &:= Ansammlung\ von\ atom.\ Aussagen. \\
+	f &:= Formel\ der\ Aussagelogik\ ueber\ \textit{V$_{ar}$}. \\
+	\textit{F$_{AL}$} &:= Gesamtheit\ aller\ aussagelog.\ Formeln. \\
+		\textit{V$_{ar}$}(f) &:= Gesamtheit\ aller\ atomaren\ Formeln. \\
+			Literal &:= Atomare\ Formel\ oder\ deren\ Negation. \\
+
+\subsection{Aussagelogische Verknüpfungen}
+    \textbf{Konjunktion, 'und' } $\land \\
+    $
+     \[
+\begin {array}{c | c || c c } 
+    A & B & A \land B \\ \hline
+    0 & 0 & 0 \\
+    0 & 1 & 0  \\
+    1 & 0 & 0 \\
+    1 & 1 & 1 
+\end{array}
+\]
+  
+
+   \textbf{Disjunktion, 'oder' } $\vee \\
+$ 
+    \[
+\begin{array}{c | c || c c l}
+    A & B & A \vee B &&  \\ \hline
+    0 & 0 & 0 &&  \\
+    0 & 1 & 1  && \\
+    1 & 0 & 1  &&  \\
+    1 & 1 & 1  && * \\
+\end{array}
+\]
+ *Aussage wahrim Gegensatz zum umgangsprachlichen 'entweder oder'. Mein\ Name\ ist\ Petra\ oder\ die\ Wand\ ist\ weiss.
+
+    \item\textbf{Negation, 'nicht A' } $\neg \\
+$
+     \[
+\begin{array}{c || c c l}
+    A & \neg A && Beispiele\\ \hline
+    0 & 1 && Die\ Wand\ ist\ nicht\ rot. \\
+    1 & 0 && Die\ Wand\ ist\ nicht\ weiss. \\
+\end{array}
+\]
+
+
+   \textbf{Äquivalenz, 'A genau dann, wenn B...' } $\leftrightarrow	
+$ 
+    \[
+\begin{array}{c | c || c c}
+    A & B & A \leftrightarrow B \\ \hline
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    1 & 1 & 1 \\
+\end{array}
+\]
+Bsp.Mein\ Name\ ist\ Max\ genau\ dann,\ wenn\ die\ Wand\ rot\ ist.\\
+ Beachte: Wenn beide Seiten gleich sind, ist die Schlussfolgerung wahr.
+
+
+   \item\textbf{Implikation, 'Wenn A, dann B', 'Aus A folgt B' } $\rightarrow	\\
+  $Prämisse  $\rightarrow \ $Konklusion.
+   
+    \[
+\begin{array}{c | c || c c}
+    A & B & A \rightarrow B \\ \hline
+    0 & 0 & 1 \\
+    0 & 1 & 1 \\
+    1 & 0 & 0 \\
+    1 & 1 & 1 \\
+\end{array}
+\]
+ Beachte: Wenn A falsch ist, dann ist die Schlussfolgerung wahr. \\
+
+\textbf{\textit{Bindungsprioritäten}} :
+1. Negation (bindet am stärksten)
+2. Konjunktion / Disjunktion
+3.Äquivalenz / Implikation
+
+ \textbf{\textit{Semantisch gleiche}} Formeln $f \equiv g$. = exakt gleiche Wahrheitswerte in Tabellen.\\
+ \textbf{\textit{Syntaktisch gleich}} aussagelogischen Formeln $f = g$. = exakt gleichen Folge von Zeichen/Symbolen bestehen.\\
+ \textbf{\textit{Ableitungsbaum}} (auch Syntaxbaum, Parsebaum) zeigt Syntax. \\
+
+\subsection{Rechenregeln für aussagelogische Formeln}
+z.B. durch Wahrheitstabellen beweisen.
+\fbox{\parbox{\columnwidth}{
+\textbf{Tautologie und Kontradiktion}
+ 'konstant'\\
+$	true$ &:= A \vee \neg A \ Tautologie. \\
+	false &:= A \land \neg A \ Kontradiktion. 
+	
+\textbf{Idempotenzgesetz}\\
+$	f$ \land f \equiv f   \\   f \vee f \equiv f 
+
+\textbf{Kommutativgesetz}\\
+$	f$ \land g \equiv g \land f \\ f \vee g \equiv g \vee f
+
+\textbf{Identitätsgesetz}\\ 
+$f$ \land true \equiv f\\          	f \vee false \equiv f\\
+	f$ \land false \equiv false   \\   	f \vee true \equiv true
+
+\textbf{Assoziativgesetz}\\
+	($f$ \land g) \land h \equiv f \land (g\land h) \\
+	  	(f \vee g) \vee h \equiv f \vee (g\vee h)\\
+
+\textbf{Absorptionsgesetz}\\
+	$f$ \land (f \vee g) \equiv f  \\   f \vee (f \land g) \equiv 
+
+\textbf{Distributivitätsgesetz}\\
+	$f$ \land (f \vee h) \equiv (f \land g) \vee (f \land h)\\
+	f \vee (f \land h) \equiv (f \vee g) \land (f \vee h)
+
+\textbf{De Morgan Gesetz}\\
+	\neg(f \land g) \equiv \neg f \vee \neg g \\  	
+	\neg(f \vee g) \equiv \neg f \land \neg g
+
+\textbf{Negationsgesetz}\\
+	\neg(\neg f) \equiv f
+
+ \textbf{Idempotenzgesetz}\\
+$(p \wedge p) \equiv p$\\
+$(p \vee p) \equiv p$
+  
+  \textbf{Absorptionsregeln}\\
+$(p \wedge (p \vee q)) \equiv p$\\
+$(p \vee (p \wedge q)) \equiv p$
+}}
+$
+
+
+
+\subsection{Normalformen}
+
+     \textbf{Konjunktive Normalform}\\
+für m $\ge$ 1, \textit{L$_{i}$} = Literale.
+\begin{aligned}
+f = {{\bigwedge_{i=1}^n} {\bigvee_{j=1}^{m_i}}} L_{i_j}
+\end{aligned}
+
+
+  \textbf{Disjunktive Normalform(Momon)}\\
+\begin{aligned}
+f = {{\bigvee_{i=1} ^n} {\bigwedge_{j=1}^{m_i}}} L_{i_j}
+\end{aligned}
+
+$
+\subsection{Belegung}
+Die \textbf{\textit{Belegung A(f)}} der aussagelogischen Formel \textit{f} ist eine Belegung der Menge \textit{V$_{ar}$()}.\\
+	(\textit{V$_{ar} ()$} := Mehrere atom. Formeln (A, B, C) einer aussagelog. Formel \textit{f}.) 
+\begin{aligned}
+	z &:= (A \rightarrow (B \vee \neg C))., \textit{V$_{ar}$}(z) &:= A, B, C. \\
+\end{aligned}
+
+
+Die Belegung \textit{${A_1}$}(z) ist \textbf{\textit{wahrmachend}} (oder \textbf{\textit{nicht wahrmachend}} )und somit \textbf{\textit{Modell}} für \textit{f}, wenn:\
+\begin{aligned}
+A \rightarrow true, B \rightarrow false, C \rightarrow false\\
+	(true \rightarrow (false \vee true) \equiv true), &&  =	\textit{${A_1}$}(z) = true.
+\end{aligned}
+
+$
+
+
+\subsection{Erfüllbarkeitseigenschaften}
+ \textbf{\textit{Erfüllbarkeitsproblem}} (eng. satisfiability, SAT) = aus.log. Form. erfüllbar?\\
+ \textbf{\textit{Tautologieproblem (TAUT)}} = aus.log. Form. Tautologie?.\\
+
+\textbf{Erüllbar}\\
+mind. eine wahrmachende Belegung ()\textbf{\textit{mind. ein Modell}}).
+\begin{aligned}
+A := Heute\ ist\ ein\ Herbsttag. \\ \textit{f} := \neg A = Heute\ ist\ nicht\ ein\ Herbsttag.
+\end{aligned}
+
+ \[
+\begin{array}{c || c }
+    A & f=\neg A\\ \hline
+    0 & 1  \\
+    1 & 0 \\
+\end{array}
+\]
+
+
+
+\textbf{Unerfüllbar}\\
+Keine wahrmachende Belegung, \textbf{\textit{kein Modell}}.
+\begin{aligned}
+A := Jetzt\ ist\ Mittagszeit. \\ \textit{t} := A \land \neg A = Jetzt\ ist\ Mittagszeit\ und\\ jetzt\ ist\ nicht\ Mittagszeit.\\
+\end{aligned}
+
+ \[
+\begin{array}{c || c }
+    A & t=A \land \neg A\\ \hline
+    0 & 0  \\
+    1 & 0 \\
+\end{array}
+\]
+
+
+\textbf{Tautologie}\\
+ \textbf{\textit{Nur wahrmachende Belegungen}}. Alles Modelle.
+\begin{aligned}
+A := Heute\ ist\ ein\ Herbsttag. \\ \textit{y} := A \vee \neg A = Heute\ ist\ ein\ Herbsttag\\ oder\ Heute\ ist\ nicht\ ein\ Herbsttag.
+\end{aligned}
+
+ \[
+\begin{array}{c || c }
+    A & y=A \vee \neg A\\ \hline
+    0 & 1  \\
+    1 & 1 \\
+\end{array}
+\]
+
+\textbf{Falsifizierbar}\\
+ \textbf{\textit{Mind. eine falschmachende}} Belegung, d.h. mind. eine Belegung ist kein Modell.
+\begin{aligned}
+A := Heute\ ist\ ein\ Herbsttag. , B := Jetzt\ ist\ Mittag. \\ 
+\textit{p} := A \land B = Heute\ ist\ ein\ Herbsttag\\ und\ jetzt\ ist\ Mittagszeit.
+\end{aligned}
+
+ \[
+\begin{array}{c | c || c }
+    A & b & p=A \land B\\ \hline
+    0 & 0 & 0\\
+    0 & 1 & 0\\
+    1 & 0 & 0\\
+    1 & 1 & 1
+\end{array}
+\]
+
+\textbf{Neutralität / Kontingenz}\\
+ \textbf{\textit{ weder Tautologie noch eine Kontradiktion}}
+$$
+
+\section{Prädikat und Quantoren}
+\textbf{\textit{Eigenschaft}} eines untersuchten Objektes. \\
+\subsection{Prädikat und prädikatenlogische Formeln}
+P(x) ist eine \textbf{\textit{Aussageform}} und  keine Aussage = kein Wahrheitswert. Erst mit  \textbf{\textit{Belegung}} zur Aussage.
+\begin{aligned}
+P(x)  := x\ ist\ eine \ Pflanze.\\ 
+\end{aligned}
+wenn nun x eine Begonie ist, dann ist P(Begonie) wahr. Wenn x eine Krabbe ist, dann ist P(Krabbe) falsch.
+
+T(x) ist \textbf{\textit{äquivalent}} zu W(x), wenn beide Prädikate für alle Belegungen die selben Wahrheitswerte aufweisen. Quantor (bindet am stärksten), danach $\vee$ , $\land$ u. a.
+
+
+\subsection{Quantoren}
+\textbf{Allquantor $\forall$} \textbf{\textit{für alle x gilt P(x)}}.
+\begin{aligned}
+\forall	x : P(x)
+\end{aligned}
+
+\textbf{Existenzquantor $\exists$} \textbf{\textit{es (mind.) 1 x gibt, so dass P(x) gilt}}.
+\begin{aligned}
+\exists x : P(x)
+\end{aligned}
+
+\textbf{Eindeutigkeitsquantor $\exists!$} \textbf{\textit{es gibt genau ein x, so dass P(x) gilt}}.
+\begin{aligned}
+\exists! x : P(x)
+\end{aligned}
+
+\fbox{\parbox{\columnwidth}{
+\textbf{Verneinungssätze}\\
+\neg (\forall x : A(x)) \leftrightarrow \exists x : \neg A (x)\\
+\neg (\forall x : \neg A(x)) \leftrightarrow \exists x : A (x)\\
+\neg (\exists x : A(x)) \leftrightarrow \forall x : \neg A (x)\\
+\neg (\exists x : \neg A(x)) \leftrightarrow \forall x : A (x)
+
+
+\textbf{Vertauschbarkeitssätze}\\
+\forall x,y : A(x,y) \leftrightarrow \forall x,y : A(x,y)\\
+\exists x,y : A(x,y) \leftrightarrow \exists x,y : A(x,y)\\
+\exists x \forall y : A(x,y) \leftrightarrow \forall y \exists x : A(x,y)\\
+\forall x : A(x) \rightarrow \exists x : A(x)\\
+\exists! x : A(x) \rightarrow \exists x : A(x)
+}
+}}
+
+\subsection*{Äquivalenzumformung}
+Wir demonstrieren an der Formel $\neg (\neg p \wedge q) \wedge (p \vee q)$, wie man mit Hilfe der
+aufgelisteten logischen Äquivalenzen tatsächlich zu Vereinfachungen kommen kann:\\
+$\phantom{{}\equiv{}} \neg (\neg p \wedge q) \wedge (p \vee q)$\\
+$\equiv (\neg (\neg p) \vee (\neg q)) \wedge (p \vee q)$\hfill de Morgan\\
+$\equiv (p \vee (\neg q)) \wedge (p \vee q)$\hfill Doppelnegation\\
+$\equiv p \vee ((\neg q) \wedge q)$\hfill Distributivtät v.r.n.l.\\
+$\equiv p \vee (q \wedge (\neg q))$\hfill Kommutativtät\\
+$\equiv p \vee f$\hfill Prinzip v. ausgeschl. Widerspruch\\
+$\equiv p$\hfill Kontradiktionsregel\\
